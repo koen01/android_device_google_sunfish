@@ -214,6 +214,10 @@ TARGET_USES_DISPLAY_RENDER_INTENTS := true
 TARGET_USES_COLOR_METADATA := true
 TARGET_USES_DRM_PP := true
 
+# SELinux
+BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-descendant/dynamic
+BOARD_SEPOLICY_DIRS += device/google/sunfish/sepolicy-descendant/vendor
+
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/sunfish/manifest.xml
 DEVICE_MATRIX_FILE := device/google/sunfish/compatibility_matrix.xml
