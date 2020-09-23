@@ -92,4 +92,9 @@
     <string translatable="false" name="config_cameraProtectionExcludedPackages">com.google.android.as</string>
 
     <bool name="config_enableDisplayCutoutProtection">true</bool>
+
+    <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
+     vibrator is capable of subtle vibrations -->
+    <bool name="config_vibrateOnIconAnimation">true</bool>
+
 </resources>
