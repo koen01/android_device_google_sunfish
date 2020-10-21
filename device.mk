@@ -676,7 +676,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 # Setup Dalvik VM configurations
-$(call inherit-product, vendor/extras/configs/phone-xhdpi-6144-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Use the default charger mode images
 PRODUCT_PACKAGES += \
