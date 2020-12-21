@@ -55,8 +55,8 @@ ifeq ($(DEVICE_USES_SM7250_QCRIL_TELEPHONY), true)
       vendor/qcom/sm7250/proprietary/commonsys/telephony-apps/xdivert \
       vendor/qcom/sm7250/proprietary/qcril-data-hal \
       vendor/qcom/sm7250/proprietary/qcril-hal \
-      vendor/qcom/sm8150/proprietary/data/permissions
-else
+      vendor/qcom/sm7250/proprietary/data
+  else
   $(warning DEVICE_USES_SM7250_QCRIL_TELEPHONY is disabled)
 
   PRODUCT_SOONG_NAMESPACES += \
@@ -336,12 +336,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_ltd_sys_ind=1 \
     persist.vendor.radio.videopause.mode=1 \
+    persist.vendor.radio.mt_sms_ack=30 \
     persist.vendor.radio.multisim_switch_support=true \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.data_con_rprt=true \
     persist.vendor.radio.relay_oprt_change=1 \
     persist.vendor.radio.no_wait_for_card=1 \
     persist.vendor.radio.sap_silent_pin=1 \
+    persist.vendor.radio.manual_nw_rej_ct=1 \
     persist.rcs.supported=1 \
     vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.hardware.keystore_desede=true \
@@ -816,9 +818,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
-# default atrace HAL
+# Pixel atrace HAL
 PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service
+    android.hardware.atrace@1.0-service.pixel
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -873,7 +875,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=15
+	ro.vendor.build.svn=16
 
 # ZRAM writeback
 PRODUCT_PROPERTY_OVERRIDES += \
