@@ -22,7 +22,7 @@
 #
 
 # Include Superior common configuration
-include vendor/superior/config/common.mk
+$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -30,11 +30,15 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 # Boot amimation
 TARGET_BOOT_ANIMATION_RES := 1080
 
+# Descendant
+TARGET_SUPPORTS_BLUR := true
+TARGET_FACE_UNLOCK_SUPPORT := true
+
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := superior_sunfish
+PRODUCT_NAME := descendant_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4a
@@ -49,4 +53,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/sunfish/sunfish:11/RQ1A.210105.002/6985033:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
-$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
