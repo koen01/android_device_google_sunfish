@@ -32,7 +32,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 
 # Descendant
 TARGET_SUPPORTS_BLUR := true
-TARGET_FACE_UNLOCK_SUPPORT := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
@@ -54,3 +54,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
 $(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
+
+# Clearwater vendor for my own extras
+$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
+
