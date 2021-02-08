@@ -53,8 +53,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/sunfish/sunfish:11/RQ1A.210205.004/7038034:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
-$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
+#$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
 
 # Clearwater vendor for my own extras
-$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
+#$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
 
