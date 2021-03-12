@@ -21,27 +21,31 @@
 # lines, aosp and du, hence its name.
 #
 
-# Include Superior common configuration
-$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
+# Include Fluid common configuration
+$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
-
-# Boot amimation
-TARGET_BOOT_ANIMATION_RES := 1080
-
-# Descendant
-TARGET_SUPPORTS_BLUR := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := descendant_sunfish
+PRODUCT_NAME := fluid_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4a
+
+# Device specific stuff
+TARGET_BOOT_ANIMATION := 1080
+PRODUCT_GMS_CLIENTID_BASE := android-google
+IS_PHONE := true
+TARGET_INCLUDE_GAPPS := true
+
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.fluid.maintainer=koen01 \
+  ro.fluid.cpu=SD730G \
+  ro.product.system.model=Pixel 4a
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="sunfish" \
@@ -53,8 +57,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/sunfish/sunfish:11/RQ1A.210205.004/7038034:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
-#$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
-
-# Clearwater vendor for my own extras
-#$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
 
