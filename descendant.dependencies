@@ -23,4 +23,10 @@
    "target_path": "kernel/google/sunfish",
    "branch": "r11x"
  }
+ {
+   "remote": "github",
+   "repository": "koen01/android_bootable_recovery",
+   "target_path": "bootable/recovery",
+   "branch": "eleven"
+ }
 ]
