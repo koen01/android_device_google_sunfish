@@ -151,6 +151,10 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier
 
+# Now Playing
+PRODUCT_PACKAGES += \
+    NowPlayingOverlay
+
 PRODUCT_PACKAGES += \
     e2fsck_ramdisk \
     tune2fs_ramdisk \
