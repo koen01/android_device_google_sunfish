@@ -15,18 +15,22 @@
 #
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 
 -include device/google/sunfish/device-lineage.mk
 
+# Descendant
+TARGET_SUPPORTS_BLUR := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := sunfish
 PRODUCT_MODEL := Pixel 4a
-PRODUCT_NAME := lineage_sunfish
+PRODUCT_NAME := descendant_sunfish
 TARGET_MANUFACTURER := Google
 
 # Boot animation
