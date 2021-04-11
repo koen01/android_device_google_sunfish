@@ -22,23 +22,42 @@
 #
 
 # Include Superior common configuration
-$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
+$(call inherit-product, vendor/kangos/config/common.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
-
-# Boot amimation
-TARGET_BOOT_ANIMATION_RES := 1080
-
-# Descendant
-TARGET_SUPPORTS_BLUR := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := descendant_sunfish
+
+# Inherit GApps if exsits
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 3120
+TARGET_SCREEN_WIDTH := 1440
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# Google Recorder
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+
+# Gapps
+TARGET_GAPPS_ARCH := arm64
+USE_GAPPS=true
+TARGET_INCLUDE_AOSP_REPLACEMENT := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+
+# Face unlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Device Info.
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.kangos.maintainer=koen01 \
+  ro.kangos.cpu=SD765G
+
+PRODUCT_NAME := kangos_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4a
