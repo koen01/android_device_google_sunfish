@@ -22,7 +22,7 @@
 #
 
 # Include Superior common configuration
-$(call inherit-product, vendor/kangos/config/common.mk)
+$(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -52,12 +52,7 @@ TARGET_INCLUDE_LIVE_WALLPAPERS := true
 # Face unlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
 
-# Device Info.
-PRODUCT_PRODUCT_PROPERTIES += \
-  ro.kangos.maintainer=koen01 \
-  ro.kangos.cpu=SD765G
-
-PRODUCT_NAME := kangos_sunfish
+PRODUCT_NAME := potato_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4a
@@ -72,7 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/sunfish/sunfish:11/RQ2A.210405.005/7181113:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
-#$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
+$(call inherit-product-if-exists, vendor/gapps/pixel-gapps.mk)
 
 # Clearwater vendor for my own extras
 #$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)

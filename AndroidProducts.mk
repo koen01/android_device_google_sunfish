@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/kangos_sunfish.mk
+    $(LOCAL_DIR)/potato_sunfish.mk
 
 #COMMON_LUNCH_CHOICES := \
-    kangos_sunfish-userdebug \
-    kangos_sunfish-user
+    potato_sunfish-userdebug \
+    potato_sunfish-user
 
