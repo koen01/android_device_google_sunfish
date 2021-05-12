@@ -22,7 +22,7 @@
 #
 
 # Include DU common configuration
-include vendor/nexus/config/common_full_phone.mk
+include vendor/scorpion/config/common_full_phone.mk
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -31,7 +31,7 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := abc_sunfish
+PRODUCT_NAME := scorpion_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 4a
@@ -47,3 +47,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
 $(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+
+# Clearwater vendor for my own extras
+$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
+
