@@ -31,6 +31,9 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
+# Faceunlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 PRODUCT_NAME := scorpion_sunfish
 PRODUCT_DEVICE := sunfish
 PRODUCT_BRAND := google
