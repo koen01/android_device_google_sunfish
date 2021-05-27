@@ -15,7 +15,7 @@
 #
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
+include vendor/scorpion/config/common_full_phone.mk
 
 # Inherit device configuration
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -26,15 +26,14 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := sunfish
 PRODUCT_MODEL := Pixel 4a
-PRODUCT_NAME := descendant_sunfish
+PRODUCT_NAME := scorpion_sunfish
 TARGET_MANUFACTURER := Google
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 2340
 
-# Descendant
-TARGET_SUPPORTS_BLUR := true
+# Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
@@ -47,3 +46,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/sunfish/sunfish:11/RQ2A.210505.002/7246365:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
+
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+
+# Clearwater vendor for my own extras
+$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
