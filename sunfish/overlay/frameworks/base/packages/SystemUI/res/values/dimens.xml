@@ -21,6 +21,4 @@
     <dimen name="config_rounded_mask_size_top">146px</dimen>
     <dimen name="config_rounded_mask_size_bottom">146px</dimen>
 
-    <!-- Descendant -->
-    <dimen name="qqs_padding_top">34dp</dimen>
 </resources>
