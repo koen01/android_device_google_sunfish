@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# Inherit some common Lineage stuff.
-include vendor/scorpion/config/common_full_phone.mk
+# Include Fluid common configuration
+$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -26,7 +26,7 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := sunfish
 PRODUCT_MODEL := Pixel 4a
-PRODUCT_NAME := scorpion_sunfish
+PRODUCT_NAME := fluid_sunfish
 TARGET_MANUFACTURER := Google
 
 # Boot animation
@@ -35,6 +35,17 @@ TARGET_SCREEN_HEIGHT := 2340
 
 # Face Unlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Device specific stuff
+TARGET_BOOT_ANIMATION := 1080
+PRODUCT_GMS_CLIENTID_BASE := android-google
+IS_PHONE := true
+TARGET_INCLUDE_GAPPS := true
+
+PRODUCT_PRODUCT_PROPERTIES += \
+  ro.fluid.maintainer=koen01 \
+  ro.fluid.cpu=SD730G \
+  ro.product.system.model=Pixel 4a
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="sunfish" \
@@ -47,7 +58,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
 
-$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
-
-# Clearwater vendor for my own extras
+# Clearwater vendor
 $(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)

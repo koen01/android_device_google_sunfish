@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+BUILD_BROKEN_PREBUILT_ELF_FILES := true
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
 ## Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.lz4
 KERNEL_LD := LD=ld.lld

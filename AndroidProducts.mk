@@ -15,8 +15,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_sunfish.mk \
+    $(LOCAL_DIR)/fluid_sunfish.mk \
 
-#COMMON_LUNCH_CHOICES := \
+COMMON_LUNCH_CHOICES := \
 #    aosp_sunfish-userdebug \
-#    descendant_sunfish-userdebug \
+    fluid_sunfish-userdebug \
