@@ -40,7 +40,10 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_BOOT_ANIMATION := 1080
 PRODUCT_GMS_CLIENTID_BASE := android-google
 IS_PHONE := true
-TARGET_INCLUDE_GAPPS := true
+#TARGET_INCLUDE_GAPPS := true
+#TARGET_INCLUDE_LIVE_WALLPAPERS := true
+#TARGET_INCLUDE_STOCK_ARCORE := true
+#TARGET_INCLUDE_GOOGLE_RECORDER := true
 
 PRODUCT_PRODUCT_PROPERTIES += \
   ro.fluid.maintainer=koen01 \
@@ -60,3 +63,7 @@ $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
 
 # Clearwater vendor
 $(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
+
+# pixelgapps
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+
