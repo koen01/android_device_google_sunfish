@@ -15,7 +15,7 @@
 #
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/descendant/config/common_full_phone.mk)
+$(call inherit-product, vendor/bootleggers/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -30,7 +30,7 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := sunfish
 PRODUCT_MODEL := Pixel 4a
-PRODUCT_NAME := descendant_sunfish
+PRODUCT_NAME := bootleg_sunfish
 TARGET_MANUFACTURER := Google
 
 # Boot animation
@@ -44,3 +44,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := google/sunfish/sunfish:11/RQ2A.210405.005/7181113:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
+$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+
+# Clearwater vendor for my own extras
+$(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)

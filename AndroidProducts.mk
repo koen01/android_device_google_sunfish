@@ -16,8 +16,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_sunfish.mk \
-    $(LOCAL_DIR)/descendant_sunfish.mk \
+    $(LOCAL_DIR)/bootleg_sunfish.mk \
 
 COMMON_LUNCH_CHOICES := \
     aosp_sunfish-userdebug \
-    descendant_sunfish-userdebug \
+    bootleg_sunfish-userdebug \
