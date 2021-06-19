@@ -44,7 +44,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := google/sunfish/sunfish:11/RQ2A.210405.005/7181113:user/release-keys
 
 $(call inherit-product-if-exists, vendor/google/sunfish/sunfish-vendor.mk)
-$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
+#$(call inherit-product-if-exists, vendor/pixelgapps/pixel-gapps.mk)
 
 # Clearwater vendor for my own extras
 $(call inherit-product-if-exists, vendor/clearwater/clearwater.mk)
