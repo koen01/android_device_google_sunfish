@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common evolution stuff.
+$(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
@@ -26,12 +26,13 @@ $(call inherit-product, device/google/sunfish/aosp_sunfish.mk)
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := sunfish
 PRODUCT_MODEL := Pixel 4a
-PRODUCT_NAME := lineage_sunfish
+PRODUCT_NAME := evolution_sunfish
 TARGET_MANUFACTURER := Google
 
-# Boot animation
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 2340
+# Boot animation and other stuff
+TARGET_BOOT_ANIMATION_RES := 1440
+TARGET_FACE_UNLOCK_SUPPORTED := true
+DEVICE_REQUIRES_CARRIER_APPS := false
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sunfish \
