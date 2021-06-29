@@ -67,6 +67,7 @@ BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 TARGET_NO_KERNEL := false
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_USES_METADATA_PARTITION := true
+TARGET_NO_RECOVERY := true
 
 AB_OTA_UPDATER := true
 
@@ -228,3 +229,6 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
 -include vendor/google_devices/sunfish/proprietary/BoardConfigVendor.mk
 
 -include device/google/sunfish/BoardConfig-lineage.mk
+
+# Twrp
+-include $(DEVICE_PATH)/twrp/twrp.mk
