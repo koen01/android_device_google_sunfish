@@ -87,6 +87,9 @@ AB_OTA_PARTITIONS += \
      vbmeta_system \
      vendor
 
+# Prebuilt twrp
+TARGET_PREBUILT_RECOVERY_RAMDISK := device/google/sunfish/twrp/sunfish_twrp11-test3.img-ramdisk.cpio.gz
+
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/sunfish/recovery.wipe
 TARGET_RECOVERY_FSTAB := device/google/sunfish/fstab.hardware
