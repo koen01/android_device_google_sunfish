@@ -57,11 +57,18 @@ BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_SOURCE := kernel/google/sunfish
-TARGET_KERNEL_CONFIG := sunfish_defconfig
+# Kernel
 BOARD_KERNEL_IMAGE_NAME := Image.lz4
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
+KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
+TARGET_GCC_ARM32_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi/bin/arm-eabi-
+KERNEL_LD := LD=$(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin/aarch64-elf-ld.lld \
+             CROSS_COMPILE_ARM32=$(TARGET_GCC_ARM32_TOOLCHAIN)
+TARGET_KERNEL_CONFIG := sunfish_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/sunfish
+TARGET_NEEDS_DTBOIMAGE := true
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOT_HEADER_VERSION := 2
