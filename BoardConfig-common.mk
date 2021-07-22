@@ -58,17 +58,12 @@ BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
 # Kernel
-BOARD_KERNEL_IMAGE_NAME := Image.lz4
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-elf-
-KERNEL_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin
-TARGET_GCC_ARM32_TOOLCHAIN := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi/bin/arm-eabi-
-KERNEL_LD := LD=$(PWD)/prebuilts/gcc/linux-x86/aarch64/aarch64-elf/bin/aarch64-elf-ld.lld \
-             CROSS_COMPILE_ARM32=$(TARGET_GCC_ARM32_TOOLCHAIN)
-TARGET_KERNEL_CONFIG := sunfish_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/google/sunfish
-TARGET_NEEDS_DTBOIMAGE := true
+TARGET_KERNEL_CONFIG := sunfish_defconfig
+BOARD_KERNEL_IMAGE_NAME := Image.lz4
+TARGET_PREBUILT_RECOVERY_RAMDISK := device/google/sunfish/twrp/twrp.zip
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_BOOT_HEADER_VERSION := 2
@@ -79,6 +74,7 @@ TARGET_NEEDS_DTBOIMAGE := true
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_NO_KERNEL := false
+TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_USES_METADATA_PARTITION := true
 
@@ -93,9 +89,6 @@ AB_OTA_PARTITIONS += \
      system_ext \
      vbmeta_system \
      vendor
-
-# Prebuilt twrp
-TARGET_PREBUILT_RECOVERY_RAMDISK := device/google/sunfish/twrp/sunfish_twrp11-test3.img-ramdisk.cpio.gz
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/sunfish/recovery.wipe
